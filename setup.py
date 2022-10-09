@@ -1,5 +1,6 @@
 import platform
 from glob import glob
+import os.path
 
 from pybind11.setup_helpers import Pybind11Extension
 from setuptools import setup
@@ -25,6 +26,11 @@ ext_m = Pybind11Extension(
     include_dirs=["rocksdb/include"],
     libraries=get_libraries(),
     library_dirs=["."],
+    runtime_library_dirs = [os.path.abspath("/opt/homebrew/opt/lz4/lib"),
+                            os.path.abspath("/opt/homebrew/opt/snappy/lib"),
+                            os.path.abspath("/opt/homebrew/opt/bzip2/lib"),
+                            os.path.abspath("/opt/homebrew/opt/zlib/lib"),
+                            os.path.abspath("/opt/homebrew/opt/zstd/lib")],
     define_macros=[("VERSION_INFO", __version__)],
     cxx_std=17,
 )
