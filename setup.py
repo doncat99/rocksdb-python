@@ -3,7 +3,8 @@ from glob import glob
 import os.path
 
 from pybind11.setup_helpers import Pybind11Extension
-from setuptools import setup
+from setuptools import setup, find_packages
+
 
 IS_WIN = platform.system() == "Windows"
 __version__ = "0.0.1"
@@ -40,5 +41,5 @@ setup(
     name="rocksdb-python",
     version=__version__,
     ext_modules=ext_modules,
-    packages=["rocksdb_python"],
+    packages=find_packages(exclude=['test']),
 )
