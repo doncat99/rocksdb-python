@@ -48,9 +48,9 @@ git clone --recursive https://github.com/gau-nernst/rocksdb-python
 cd rocksdb-python
 
 pip install pybind11
-python setup.py build_ext -i
+python setup.py build_ext -i install
 # on macOS, add MACOSX_DEPLOYMENT_TARGET=10.13, follows RocksDB
-# MACOSX_DEPLOYMENT_TARGET=10.13 python setup.py build_ext -i
+# MACOSX_DEPLOYMENT_TARGET=10.13 python setup.py build_ext -i install
 ```
 
 The `rocksdb` submodule should be in the same commit as the commit used to build RocksDB in the previous step (or even better, same release version). This is to make sure RocksDB's header files are consistent with the RocksDB binary.
